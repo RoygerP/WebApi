@@ -11,7 +11,7 @@ using WebApi.Models;
 
 namespace WebApi.Services
 {
-    public class Persona_Services
+    public class PersonaServices
     {
         private readonly ContextDatabase _context;
 

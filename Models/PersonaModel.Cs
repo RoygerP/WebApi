@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Models{
     
-public class Persona_Model
+public class PersonaModel
 {
 
     public enum Generos{

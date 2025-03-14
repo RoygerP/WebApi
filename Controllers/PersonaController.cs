@@ -13,54 +13,38 @@ namespace WebApi.Controllers
 {
     [Route("api/persona")]
     [ApiController]
-    public class Persona_Controller : ControllerBase
+    public class PersonaController : ControllerBase
     {
-        private readonly Persona_Services _Services;
+        private readonly PersonaServices _Services;
 
-        public Persona_Controller(Persona_Services services)
+        public Persona_Controller(PersonaServices services)
         {
             _Services = services;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Persona_Services>>> HttpGet()
+        public async Task<ActionResult<IEnumerable<PersonaServices>>> HttpGet()
         {
             var Request = await _Services.Getall();
-            if (Request is null)
-            {
-                return NotFound("No hay personas actualmente");
-            }
             return Ok(Request);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Persona_Services>> HttpGetByid(int id)
+        public async Task<ActionResult<PersonaServices>> HttpGetByid(int id)
         {
             var Request = await _Services.GetById(id);
-
-            if (Request is null)
-            {
-                return NotFound("Persona no encontrada");
-            }
-
             return Ok(Request);
         }
 
         [HttpPost]
-        public async Task<ActionResult> HttpPost([Bind("Nombre,Sexo")] Persona_Model persona)
+        public async Task<ActionResult> HttpPost([Bind("Nombre,Sexo")] PersonaModel persona)
         {
             var Request = await _Services.Crear(persona);
-
-            if (Request is null)
-            {
-                return NotFound("Persona no guardada exitosamente");
-            }
-
             return Ok(Request);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> HttpPut(int id, Persona_Model persona)
+        public async Task<IActionResult> HttpPut(int id, PersonaModel persona)
         {
             var request = await _Services.UpdatePerson(id, persona);
             return Ok(request);
