@@ -23,18 +23,17 @@ namespace WebApi.Services
         public async Task<IEnumerable<PersonaModel>> Getall()
         {
             var Personas = await _context.personas.ToListAsync();
-
-            if (Personas.Count == 0)
-            {
-                throw new NotFoundException("No hay personas actualmente");
-            }
-
             return Personas;
         }
 
         public async Task<PersonaModel?> GetById(int id)
         {
-            return await _context.personas.FindAsync(id);
+            var Personas = _context.personas.FindAsync(id);
+            if (Personas is null)
+            {
+                throw new NotFoundException("No se encuntra la persona");
+            }
+            return Personas;
         }
 
         public async Task<PersonaModel> Crear(PersonaModel persona)

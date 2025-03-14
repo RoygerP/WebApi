@@ -53,12 +53,6 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> HttpDelete(int id)
         {
-            var PersonExist = await _Services.GetById(id);
-
-            if (PersonExist is null)
-            {
-                return NotFound("Persona no encontrada");
-            }
             var request = await _Services.Delete(id);
             return Ok(request);
         }
