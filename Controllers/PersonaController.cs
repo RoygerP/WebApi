@@ -37,7 +37,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> HttpPost([Bind("Nombre,Sexo")] PersonaModel persona)
+        public async Task<ActionResult> HttpPost([Bind("Nombre,Edad,Sexo")] PersonaModel persona)
         {
             var Request = await _Services.Crear(persona);
             return Ok(Request);

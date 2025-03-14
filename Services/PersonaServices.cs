@@ -66,6 +66,7 @@ namespace WebApi.Services
                 }
 
                 PersonExist.Nombre = persona.Nombre;
+                personExist.Edad = persona.Edad;
                 PersonExist.Sexo = persona.Sexo;
 
                 await _context.SaveChangesAsync();
