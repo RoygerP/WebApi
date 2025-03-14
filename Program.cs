@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ContextDatabase>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Connection"))
 );
-builder.Services.AddScoped<Persona_Services>();
+builder.Services.AddScoped<PersonaServices>();
 builder.Services.AddScoped<CustomNotFound>();
 
 builder.Services.AddControllers(opt =>

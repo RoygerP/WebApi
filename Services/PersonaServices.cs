@@ -28,8 +28,8 @@ namespace WebApi.Services
 
         public async Task<PersonaModel?> GetById(int id)
         {
-            var Personas = _context.personas.FindAsync(id);
-            if (Personas is null)
+            var Personas = await _context.personas.FindAsync(id);
+            if (Personas == null)
             {
                 throw new NotFoundException("No se encuntra la persona");
             }
