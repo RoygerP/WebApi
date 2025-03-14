@@ -15,7 +15,7 @@ namespace WebApi.Services
     {
         private readonly ContextDatabase _context;
 
-        public Persona_Services(ContextDatabase context)
+        public PersonaServices(ContextDatabase context)
         {
             _context = context;
         }
@@ -50,7 +50,7 @@ namespace WebApi.Services
             catch (Exception)
             {
                 await transaction.RollbackAsync();
-                return CustomException("Persona no creadad exitosamente");
+                return CustomException("Persona no creada exitosamente");
             }
         }
 

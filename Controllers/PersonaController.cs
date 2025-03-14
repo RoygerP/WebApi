@@ -17,7 +17,7 @@ namespace WebApi.Controllers
     {
         private readonly PersonaServices _Services;
 
-        public Persona_Controller(PersonaServices services)
+        public PersonaController(PersonaServices services)
         {
             _Services = services;
         }
