@@ -16,7 +16,10 @@ public class PersonaModel
     [Required]
     [DataType(DataType.Text)]
     [StringLength(50, ErrorMessage = "Maximo de caracteres 50")] 
-    public string? Nombre { get; set; }  
+    public string? Nombre { get; set; } 
+    [required]
+    [range(0, 100, ErrorMessage = "Edad debe ser entre 0 y 100")]
+    public int? Edad { get; set; } 
     [Required(ErrorMessage = "Favor de seleccionar una opcion")]
     [EnumDataType(typeof(Generos), ErrorMessage = "Solo se puede selecionar 0 Masculino 1 Femenino ")]
     public Generos? Sexo { get; set; }
